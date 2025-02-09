@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 from tkinter import Tk, Label, Entry, Button, StringVar, Frame
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
+def f(x):
+    return x ** 3 - 3 * x + 2
 
 class GraphicalMethodApp:
     def __init__(self, root):
@@ -27,7 +29,7 @@ class GraphicalMethodApp:
 
     def plot_function(self):
         x = np.linspace(-2, 2, 400)
-        y = x ** 3 - 3 * x + 2
+        y = f(x)
 
         fig, ax = plt.subplots(figsize=(5, 4))
         ax.plot(x, y, label="f(x) = x³ - 3x + 2")
@@ -43,7 +45,7 @@ class GraphicalMethodApp:
     def calculate_error(self):
         try:
             numerical_root = float(self.entry_root.get())
-            actual_root = -1  # One of the roots (can be refined numerically)
+            actual_root = 1  # One of the roots (can be refined numerically)
             abs_error = abs(numerical_root - actual_root)
             self.result_var.set(f"Absolute Error: {abs_error:.6f}")
         except ValueError:

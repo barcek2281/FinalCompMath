@@ -3,11 +3,11 @@ import matplotlib.pyplot as plt
 from tkinter import Tk, Label, Entry, Button, StringVar, Frame, ttk
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
-
+# given function
 def f(x):
     return x ** 4 - 5 * x ** 2 + 4
 
-
+# implement bisection method
 def bisection_method(a, b, tol=1e-6):
     iterations = 0
     while (b - a) / 2 > tol:
@@ -21,7 +21,7 @@ def bisection_method(a, b, tol=1e-6):
         iterations += 1
     return c, iterations
 
-
+# implement false position method
 def false_position_method(a, b, tol=1e-6):
     iterations = 0
     c = a
